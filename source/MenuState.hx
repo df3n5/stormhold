@@ -6,12 +6,15 @@ import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import flixel.tweens.misc.ColorTween;
+import flixel.tweens.FlxTween;
 
 /**
  * A FlxState which can be used for the game's menu.
  */
 class MenuState extends FlxState {
-    private var _tween:FlxTween;
+    private var tween:ColorTween;
+    private var text:FlxText;
 
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -26,9 +29,10 @@ class MenuState extends FlxState {
 		
         var title = new FlxSprite(0, 0, "assets/images/title.png");
         add(title);
-        var text = new FlxText(0, 3*FlxG.height/4, FlxG.width, "Press any key");
+        text = new FlxText(0, 2*FlxG.height/3, FlxG.width, "Press any key");
         text.setFormat("assets/Yokawerad.otf", 32, "center", FlxText.BORDER_OUTLINE);
         add(text);
+        tween = FlxTween.color(2, 0, 0, 1, 0.1, { type: FlxTween.PINGPONG });
 		super.create();
 	}
 
@@ -45,6 +49,6 @@ class MenuState extends FlxState {
 	 */
 	override public function update():Void {
 		super.update();
-
+        text.alpha = tween.alpha;
 	}	
 }
