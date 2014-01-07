@@ -16,7 +16,7 @@ class PlayState extends FlxState {
 	 */
 	override public function create():Void {
 		// Set a background color
-		FlxG.cameras.bgColor = 0xff131c1b;
+		FlxG.cameras.bgColor = 0xff9a9a9a;
 		// Show the mouse (in case it hasn't been disabled)
 		#if !FLX_NO_MOUSE
 		FlxG.mouse.show();
