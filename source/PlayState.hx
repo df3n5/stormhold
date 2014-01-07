@@ -21,6 +21,7 @@ class PlayState extends FlxState {
 		#if !FLX_NO_MOUSE
 		FlxG.mouse.show();
 		#end
+        add(new Player(10, 10));
 		
 		super.create();
 	}

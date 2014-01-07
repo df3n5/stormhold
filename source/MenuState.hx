@@ -15,6 +15,7 @@ import flixel.tweens.FlxTween;
 class MenuState extends FlxState {
     private var tween:ColorTween;
     private var text:FlxText;
+    private var titleText:FlxText;
 
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -29,8 +30,15 @@ class MenuState extends FlxState {
 		
         var title = new FlxSprite(0, 0, "assets/images/title.png");
         add(title);
-        text = new FlxText(0, 2*FlxG.height/3, FlxG.width, "Press space");
-        text.setFormat("assets/Yokawerad.otf", 32, "center", FlxText.BORDER_OUTLINE);
+
+        titleText = new FlxText(0, 1*FlxG.height/3, FlxG.width, "stormhold", false);
+        //titleText.setFormat("assets/Yokawerad.otf", 32, "center", FlxText.BORDER_OUTLINE);
+        titleText.setFormat("assets/REVOLUTION.ttf", 72, 0xFFFFFF, "center", FlxText.BORDER_OUTLINE);
+        add(titleText);
+
+        text = new FlxText(0, 2*FlxG.height/3, FlxG.width, "Press space", false);
+        //text.setFormat("assets/Yokawerad.otf", 32, "center", FlxText.BORDER_OUTLINE);
+        text.setFormat("assets/REVOLUTION.ttf", 38, 0xFFabcd, "center", FlxText.BORDER_OUTLINE);
         add(text);
         tween = FlxTween.color(2, 0, 0, 1, 0.1, { type: FlxTween.PINGPONG });
 		super.create();
